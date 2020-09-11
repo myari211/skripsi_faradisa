@@ -32,3 +32,9 @@ Route::get('/kelas', 'KelasController@index');
 Route::post('/kelas/add', 'KelasController@add');
 Route::post('/kelas/update/{id}', 'KelasController@update');
 Route::post('/kelas/delete/{id}', 'KelasController@delete');
+
+// matpel
+Route::get('/matpel', 'MatpelController@index');
+Route::post('/matpel/add', 'MatpelController@create');
+Route::post('/matpel/update/{id}', 'MatpelController@update');
+Route::post('/matpel/delete/{id}', 'MatpelController@delete');

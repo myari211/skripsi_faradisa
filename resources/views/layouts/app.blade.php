@@ -144,6 +144,10 @@
                                     Kelas
                                     <i class="fas fa-chalkboard-teacher size-icons"></i>
                                 </a>
+                                <a class="nav-link d-inline-flex justify-content-between" href="/matpel">
+                                    Mata Pelajaran
+                                    <i class="fas fa-book open"></i>
+                                </a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
