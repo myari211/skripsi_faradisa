@@ -13,9 +13,17 @@ class CreateGurusTable extends Migration
      */
     public function up()
     {
-        Schema::create('gurus', function (Blueprint $table) {
-            $table->id();
+        Schema::create('guru', function (Blueprint $table) {
+            $table->string('id', 32)->primary();
+            $table->bigInteger('nip');
+            $table->string('nama_guru');
+            $table->string('email');
+            $table->string('matpel_id');
             $table->timestamps();
+        });
+
+        Schema::table('guru', function($table) {
+            $table->foreign('matpel_id')->references('id')->on('mata_pelajaran');
         });
     }
 

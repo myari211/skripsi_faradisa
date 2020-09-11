@@ -138,7 +138,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link d-inline-flex justify-content-between" href="/jurusan">
                                     Jurusan
-                                    <i class="fas fa-user-tie size-icons"></i>
+                                    <i class="fas fa-briefcase size-icons"></i>
                                 </a>
                                 <a class="nav-link d-inline-flex justify-content-between" href="/kelas">
                                     Kelas
@@ -147,6 +147,10 @@
                                 <a class="nav-link d-inline-flex justify-content-between" href="/matpel">
                                     Mata Pelajaran
                                     <i class="fas fa-book open"></i>
+                                </a>
+                                <a class="nav-link d-inline-flex justify-content-between" href="/guru">
+                                    Guru
+                                    <i class="fas fa-user-tie size-icons"></i>
                                 </a>
                             </nav>
                         </div>

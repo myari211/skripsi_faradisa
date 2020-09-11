@@ -79,20 +79,20 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
             </div>
-            <form action="/matpel/update/{{ $pelajaran->id_matpel}}" method="post">
+            <form action="/matpel/update/{{ $pelajaran->id}}" method="post">
                 @csrf
                 <input type="hidden" name="id" value={{ $pelajaran->id_matpel}}>
                 <div class="modal-body">
-                    <div class="row d-flex justify-content-center p-2">
+                    <div class="row d-flex justify-content-center">
                         <div class="col-lg-12">
                             <label for="kode_matpel">Kode Mata Pelajaran</label>
                             <input type="text" class="form-control" id="kode_matpel" name="kode_matpel" value="{{ $pelajaran->kode_matpel }}">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-lg-12">
                             <label for="nama_matpel">Nama Mata Pelajaran</label>
-                            <input type="text" id="nama_matpel" class="form-control" name="nama_matpel" value={{$pelajaran->nama_matpel}}>    
+                            <input type="text" id="nama_matpel" class="form-control" name="nama_matpel" value="{{ $pelajaran->nama_matpel}}">    
                         </div>
                     </div>
                 </div>

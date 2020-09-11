@@ -38,3 +38,9 @@ Route::get('/matpel', 'MatpelController@index');
 Route::post('/matpel/add', 'MatpelController@create');
 Route::post('/matpel/update/{id}', 'MatpelController@update');
 Route::post('/matpel/delete/{id}', 'MatpelController@delete');
+
+//guru
+Route::get('/guru', 'GuruController@index');
+Route::post('/guru/add', 'GuruController@create');
+Route::post('/guru/edit/{id}', 'GuruController@update');
+Route::post('/guru/delete/{id}', 'GuruController@delete');
