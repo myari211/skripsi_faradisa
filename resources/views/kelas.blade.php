@@ -93,7 +93,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
             </div>
-            <form action="/jurusan/edit/{{ $class->id_kelas }}" method="post">
+            <form action="/kelas/edit/{{ $class->id_kelas }}" method="post">
                 @csrf
                 <div class="modal-body">
                     <div class="row d-flex justify-content-center p-2">

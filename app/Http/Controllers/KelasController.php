@@ -28,6 +28,16 @@ class KelasController extends Controller
         return redirect('/kelas');
     }
 
+    public function update(Request $request){
+        $kelas = DB::table('kelas')->where('id_kelas', $request->id)->update([
+            'nama_kelas' => $request->nama_kelas,
+            'jurusan_id' => $request->jurusan_id,
+            'tingkatan' => $request->tingkatan
+        ]);
+
+        return redirect('/kelas');
+    }
+
     public function delete(Request $request){
         $kelas = DB::table('kelas')->where('id_kelas', $request->id)->delete();
 

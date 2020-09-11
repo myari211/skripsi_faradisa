@@ -30,7 +30,7 @@ Route::post('/jurusan/delete/{id}', 'JurusanController@delete');
 // kelas
 Route::get('/kelas', 'KelasController@index');
 Route::post('/kelas/add', 'KelasController@add');
-Route::post('/kelas/update/{id}', 'KelasController@update');
+Route::post('/kelas/edit/{id}', 'KelasController@update');
 Route::post('/kelas/delete/{id}', 'KelasController@delete');
 
 // matpel
