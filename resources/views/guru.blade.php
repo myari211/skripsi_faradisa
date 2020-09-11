@@ -16,9 +16,9 @@
           </tr>
         </thead>
         <tbody>
-        @foreach($guru as $pengajar)
+        @foreach($guru as $no => $pengajar)
             <tr>
-                <th scope="row">{{ $pengajar->id }}</th>
+                <th scope="row">{{ ++$no }}</th>
                 <td>{{ $pengajar->nip }}</td>
                 <td>{{ $pengajar->nama_guru }}</td>
                 <td>{{ $pengajar->kode_matpel }}</td>
