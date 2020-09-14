@@ -91,6 +91,7 @@
 <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+<title>Learning Obstacle</title>
 </head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark indigo">
@@ -142,7 +143,7 @@
                                 </a>
                                 <a class="nav-link d-inline-flex justify-content-between" href="/kelas">
                                     Kelas
-                                    <i class="fas fa-chalkboard-teacher size-icons"></i>
+                                    <i class="fas fa-school size-icons"></i>
                                 </a>
                                 <a class="nav-link d-inline-flex justify-content-between" href="/matpel">
                                     Mata Pelajaran
@@ -151,6 +152,10 @@
                                 <a class="nav-link d-inline-flex justify-content-between" href="/guru">
                                     Guru
                                     <i class="fas fa-user-tie size-icons"></i>
+                                </a>
+                                <a class="nav-link d-inline-flex justify-content-between" href="/siswa">
+                                    Siswa
+                                    <i class="fas fa-chalkboard-teacher size-icons"></i>
                                 </a>
                             </nav>
                         </div>

@@ -29,9 +29,11 @@ Route::post('/jurusan/delete/{id}', 'JurusanController@delete');
 
 // kelas
 Route::get('/kelas', 'KelasController@index');
-Route::post('/kelas/add', 'KelasController@add');
+Route::post('/kelas/add', 'KelasController@create');
 Route::post('/kelas/edit/{id}', 'KelasController@update');
 Route::post('/kelas/delete/{id}', 'KelasController@delete');
+
+Route::get('/kelas/{id}', 'KelasController@detail');
 
 // matpel
 Route::get('/matpel', 'MatpelController@index');
@@ -44,3 +46,9 @@ Route::get('/guru', 'GuruController@index');
 Route::post('/guru/add', 'GuruController@create');
 Route::post('/guru/edit/{id}', 'GuruController@update');
 Route::post('/guru/delete/{id}', 'GuruController@delete');
+
+//siswa
+Route::get('/siswa', 'SiswaController@index');
+Route::post('/siswa/add', 'SiswaController@create');
+Route::post('/siswa/edit/{id}', 'SiswaController@update');
+Route::post('/siswa/delete/{id}', 'SiswaController@delete');

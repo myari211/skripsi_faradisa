@@ -6,7 +6,6 @@
             <th scope="col">No</th>
             <th scope="col">Jurusan</th>
             <th scope="col">Kelas</th>
-            <th scope="col">Jumlah Siswa</th>
             <th class="col d-flex justify-content-end">
                 <button type="button" class="btn indigo text-white btn-md" data-toggle="modal" data-target="#add">
                     <i class="fas fa-plus size-icons"></i>
@@ -15,17 +14,19 @@
           </tr>
         </thead>
         <tbody>
-        @foreach($kelas as $class)
+        @foreach($kelas as $no => $class)
             <tr>
-                <th scope="row">1</th>
+                <th scope="row">{{ ++$no }}</th>
                 <td>{{ $class->kode_jurusan }} - {{ $class->nama_jurusan }}</td>
-                <td>{{ $class->tingkatan }} - {{ $class->nama_kelas }}</td>
-                <td>TBD</td>
+                <td>{{ $class->tingkatan }} - {{ $class->nama_kelas }}</td>     
                 <td class="d-flex justify-content-end">
-                    <button type="button" class="btn amber btn-md text-white" data-toggle="modal" data-target="#edit{{$class->id_kelas}}">
+                    <button type="button" class="btn btn-primary btn-md">
+                        <i class="fas fa-address-book size-icons" onClick="window.open('/kelas/{{$class->kelas}}')"></i>
+                    </button>
+                    <button type="button" class="btn amber btn-md text-white" data-toggle="modal" data-target="#edit{{$class->id}}">
                         <i class="fas fa-edit size-icons"></i>
                     </button>
-                    <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#delete{{$class->id_kelas}}">
+                    <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#delete{{$class->id}}">
                         <i class="fas fa-trash size-icons"></i>
                     </button>
                 </td>
@@ -84,7 +85,7 @@
 
 {{-- edit --}}
 @foreach ($kelas as $class)
-<div class="modal fade" id="edit{{$class->id_kelas}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="edit{{$class->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header amber">
@@ -93,7 +94,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
             </div>
-            <form action="/kelas/edit/{{ $class->id_kelas }}" method="post">
+            <form action="/kelas/edit/{{ $class->id }}" method="post">
                 @csrf
                 <div class="modal-body">
                     <div class="row d-flex justify-content-center p-2">
@@ -131,7 +132,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="delete{{$class->id_kelas}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="delete{{$class->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-danger">
@@ -140,11 +141,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/kelas/delete/{{ $class->id_kelas }}" method="post">
+            <form action="/kelas/delete/{{ $class->id }}" method="post">
                 @csrf
                 <div class="modal-body">
                     <div class="row">
-                        <input type="hidden" name="id" value="{{ $class->id_kelas }}">
+                        <input type="hidden" name="id" value="{{ $class->id }}">
                         <div class="col-lg-12">
                             <p>Apakah Anda Yakin Akan Menghapus Data Ini ? </p>
                         </div>

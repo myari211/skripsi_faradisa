@@ -6,20 +6,33 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\kelas;
 use App\jurusan;
+use App\siswa;
 use Ramsey\Uuid\Uuid;
 
 class KelasController extends Controller
 {
     public function index(){
-        $kelas = DB::table('kelas')->join('jurusan', 'kelas.jurusan_id', '=', 'jurusan.id')->get();
+        $kelas = DB::table('kelas')
+            ->join('jurusan', 'kelas.jurusan_id', '=', 'jurusan.id')
+            ->select('kelas.*','jurusan.*','kelas.id as kelas')
+            ->get();
+
+        // $kelas_total = Siswa::groupBy('kelas_id')->count('nama_siswa');
+        $kelas_total = DB::table('kelas')
+        ->join('siswa', 'kelas.id', '=', 'siswa.kelas_id')
+        ->join('jurusan', 'kelas.jurusan_id', '=', 'jurusan.id')
+        ->groupBy('kelas.id')
+        ->select('*', DB::raw('count(*) as total'))
+        ->get();
+        
         $jurusan = Jurusan::all();
 
-        return view('kelas', compact('kelas', 'jurusan'));
+        return view('kelas', compact('kelas', 'jurusan', 'kelas_total'));
     }
 
-    public function add(Request $request){
+    public function create(Request $request){
         $kelas = new Kelas;
-        $kelas->id_kelas = Uuid::Uuid4()->getHex();
+        $kelas->id = Uuid::Uuid4()->getHex();
         $kelas->nama_kelas = $request->nama_kelas;
         $kelas->jurusan_id = $request->jurusan_id;
         $kelas->tingkatan = $request->tingkatan;
@@ -38,9 +51,19 @@ class KelasController extends Controller
         return redirect('/kelas');
     }
 
-    public function delete(Request $request){
-        $kelas = DB::table('kelas')->where('id_kelas', $request->id)->delete();
+    public function delete($id){
+        $kelas = Kelas::find($id);
+
+        $kelas->delete($id);
 
         return redirect('/kelas');
+    }
+
+
+    public function detail($id){
+        $kelas = DB::table('kelas')->join('siswa', 'kelas.id', '=', 'siswa.kelas_id')->where('kelas_id', $id)->get();
+
+
+        return view('/kelas_detail', compact('kelas'));
     }
 }
