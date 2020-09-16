@@ -35,6 +35,7 @@ Route::post('/kelas/delete/{id}', 'KelasController@delete');
 
 // kelas_detail
 Route::get('/kelas_details', 'KelasDetailsController@index');
+Route::get('/kelas_details/{id}', 'KelasDetailsController@details');
 
 // matpel
 Route::get('/matpel', 'MatpelController@index');

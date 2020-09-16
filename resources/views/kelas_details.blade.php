@@ -17,18 +17,21 @@
                             <div class="row">
                                 <h6>{{ $class->nama_jurusan }}</h6>
                             </div>
+                            <div class="row">
+                                <p>{{ $class->total }}&nbsp;<i class="fas fa-users"></i></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer p-0">
-                        <div class="col-lg-12 d-flex justify-content-end">
-                            <button type="button" class="btn btn-indigo text-white btn-sm">
-                                <i class="fas fa-list size-icons"></i>
-                            </button>
-                            <button type="button" class="btn btn-indigo text-white btn-sm">
-                                <i class="fa fa-chalkboard-teacher size-icons"></i>
-                            </button>
-                        </div>
+                <div class="card-footer">
+                    <div class="col-lg-12 pr-0 d-flex justify-content-end">
+                        <button type="button" class="btn btn-indigo text-white btn-sm" onClick="window.open('/kelas_details/{{ $class->id }}')">
+                            <i class="fas fa-list size-icons"></i>
+                        </button>
+                        <button type="button" class="btn btn-indigo text-white btn-sm">
+                            <i class="fa fa-chalkboard-teacher size-icons"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
