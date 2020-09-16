@@ -33,7 +33,8 @@ Route::post('/kelas/add', 'KelasController@create');
 Route::post('/kelas/edit/{id}', 'KelasController@update');
 Route::post('/kelas/delete/{id}', 'KelasController@delete');
 
-Route::get('/kelas/{id}', 'KelasController@detail');
+// kelas_detail
+Route::get('/kelas_details', 'KelasDetailsController@index');
 
 // matpel
 Route::get('/matpel', 'MatpelController@index');
@@ -52,3 +53,4 @@ Route::get('/siswa', 'SiswaController@index');
 Route::post('/siswa/add', 'SiswaController@create');
 Route::post('/siswa/edit/{id}', 'SiswaController@update');
 Route::post('/siswa/delete/{id}', 'SiswaController@delete');
+

@@ -102,112 +102,130 @@
     </div>
 </div>
 
-{{-- @foreach($guru as $pengajar)
-<div class="modal fade" id="delete{{ $pengajar->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-danger">
-                <h5 class="modal-title text-white" id="exampleModalLabel">Delete Guru</h5>
-                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="/guru/delete/{{ $pengajar->id }}" method="post">
-                @csrf
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <p>NIP</p>
-                        </div>
-                        <div class="col-lg-7">
-                            <p>: {{ $pengajar->nip }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <p>Nama Guru</p>
-                        </div>
-                        <div class="col-lg-7">
-                            <p>: {{ $pengajar->nama_guru}}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <p>Mata Pelajaran</p>
-                        </div>
-                        <div class="col-lg-7">
-                            <p>: {{ $pengajar->nama_matpel }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <p>Email</p>
-                        </div>
-                        <div class="col-lg-7">
-                            <p>{{ $pengajar->email }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger text-white d-flex btn-md">
-                        <i class="fas fa-trash size-icons"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="edit{{ $pengajar->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@foreach ($siswa as $student)
+<div class="modal fade" id="edit{{$student->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header amber">
-                <h5 class="modal-title text-white" id="exampleModalLabel">Edit Guru</h5>
+                <h5 class="modal-title text-white" id="exampleModalLabel">Edit Siswa</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/guru/edit/{{ $pengajar->id }}" method="post">
+            <form action="/siswa/edit/{{ $student->id }}" method="post">
                 @csrf
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <label for="nip">Nomor Induk Pegawai</label>
-                            <input type="text" name="nip" class="form-control" id="nip" value="{{ $pengajar->nip }}">
+                            <label for="nama_siswa">Nama Siswa</label>
+                            <input type="text" name="nama_siswa" class="form-control" id="nama_siswa" value="{{ $student->nama_siswa }}">
                         </div>
                     </div>
-                    <div class="row mt-4">
+                    <div class="row mt-2">
                         <div class="col-lg-12">
-                            <label for="nama_guru">Nama Guru</label>
-                            <input type="text" name="nama_guru" class="form-control" id="nama_guru" value="{{ $pengajar->nama_guru }}">
+                            <label for="nomor_induk">Nomor Induk</label>
+                            <input type="number" name="nomor_induk" class="form-control" id="nomor_induk" value="{{ $student->nomor_induk }}">
                         </div>
                     </div>
-                    <div class="row mt-4">
-                        <div class="col-lg-12">
-                            <label for="matpel">Mata Pelajaran</label>
-                            <select name="matpel" id="matpel" class="form-control">
-                                @foreach($matpel as $pelajaran)
-                                    <option value="{{ $pelajaran->id }}">{{ $pelajaran->nama_matpel }}</option>
+                    <div class="row mt-2">
+                        <div class="col-lg-5">
+                            <label for="jenis_kelamin">Jenis Kelamin</label>
+                            <select name="jenis_kelamin" class="form-control">
+                                <option value="L">Laki - Laki</option>
+                                <option value="P">Perempuan</option>
+                            </select>
+                        </div>
+                        <div calss="col-lg-7">
+                            <label for="kelas">Kelas</label>
+                            <select name="kelas_id" id="kelas" class="form-control">
+                                @foreach($kelas as $class)
+                                    <option value="{{ $class->id }}">{{ $class->tingkatan }} - {{ $class->nama_kelas }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
-                    <div class="row mt-4">
+                    <div class="row mt-2">
                         <div class="col-lg-12">
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="email" class="form-control" value="{{ $pengajar->email }}">
+                            <input type="email" name="email" class="form-control" id="email" value="{{ $student->email }}">
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-amber text-white d-flex btn-md">
-                        <i class="fas fa-edit size-icons"></i>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-indigo text-white d-flex justify-content-center btn-md">
+                        <i class="fas fa-paper-plane button-icons mx-auto"></i>
                     </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<div class="modal fade" id="delete{{ $student->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title text-white" id="exampleModalLabel">Hapus Siswa</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/siswa/delete/{{ $student->id }}" method="post">
+                @csrf
+                <div class="modal-body">
+                    <div class="row ml-4">
+                        <p>Apakah anda yakin akan menghapus data ini ?</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <p>Nama Siswa</p>
+                        </div>
+                        <div class="col-lg-7">
+                            <p>: {{ $student->nama_siswa }}</p>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-lg-5">
+                            <p>Nomor Induk</p>
+                        </div>
+                        <div class="col-lg-7">
+                            <p>: {{ $student->nomor_induk }} </p>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-lg-5">
+                            <p>Jenis Kelamin</p>
+                        </div>
+                        <div class="col-lg-7">
+                            <p>: {{ $student->jenis_kelamin }} </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <p>Kelas</p>
+                        </div>
+                        <div class="col-lg-7">
+                            <p>: {{ $student->nama_kelas }}</p>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-lg-5">
+                            <p>email</p>
+                        </div>
+                        <div class="col-lg-7">
+                            <p>: {{ $student->email }}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-danger text-white d-flex justify-content-center align-items-center btn-md">
+                        <i class="fas fa-trash button-icons mx-auto"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endforeach
 
-@endforeach --}}
+
 @endsection

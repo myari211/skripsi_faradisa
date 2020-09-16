@@ -10,6 +10,9 @@
                 <button type="button" class="btn indigo text-white btn-md" data-toggle="modal" data-target="#add">
                     <i class="fas fa-plus size-icons"></i>
                 </button>
+                <button type="button" class="btn indigo text-white btn-md" onClick="window.open('/kelas_details');">
+                    <i class="fas fa-th-list size-icons"></i>
+                </button>
             </th>
           </tr>
         </thead>
@@ -20,9 +23,6 @@
                 <td>{{ $class->kode_jurusan }} - {{ $class->nama_jurusan }}</td>
                 <td>{{ $class->tingkatan }} - {{ $class->nama_kelas }}</td>     
                 <td class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary btn-md">
-                        <i class="fas fa-address-book size-icons" onClick="window.open('/kelas/{{$class->kelas}}')"></i>
-                    </button>
                     <button type="button" class="btn amber btn-md text-white" data-toggle="modal" data-target="#edit{{$class->id}}">
                         <i class="fas fa-edit size-icons"></i>
                     </button>

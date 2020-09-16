@@ -12,7 +12,7 @@ use Ramsey\Uuid\Uuid;
 class SiswaController extends Controller
 {
     public function index(){
-        $siswa = DB::table('siswa')->join('kelas', 'siswa.kelas_id','=','kelas.id')->get();
+        $siswa = DB::table('siswa')->join('kelas', 'siswa.kelas_id','=','kelas.id')->select('siswa.*', 'kelas.nama_kelas')->get();
         $kelas = Kelas::all();
 
         return view('siswa', compact('siswa', 'kelas'));
