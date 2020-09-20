@@ -18,12 +18,12 @@ class CreateGurusTable extends Migration
             $table->bigInteger('nip');
             $table->string('nama_guru');
             $table->string('email');
-            $table->string('matpel_id');
+            $table->string('mata_pelajaran_id');
             $table->timestamps();
         });
 
         Schema::table('guru', function($table) {
-            $table->foreign('matpel_id')->references('id')->on('mata_pelajaran');
+            $table->foreign('mata_pelajaran_id')->references('id')->on('mata_pelajaran');
         });
     }
 

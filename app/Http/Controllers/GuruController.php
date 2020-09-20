@@ -6,18 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\guru;
-use App\matpel;
+use App\mata_pelajaran;
 use Ramsey\Uuid\Uuid;
 
 class GuruController extends Controller
 {
     public function index(){
-        $matpel= Matpel::all();
+        $matpel= Mata_pelajaran::all();
+        $guru = Guru::all();
 
-        $guru = DB::table('guru')
-        ->join('mata_pelajaran', function ($join) {
-            $join->on('guru.matpel_id','=','mata_pelajaran.id');
-        })->select('guru.*', 'kode_matpel', 'nama_matpel')->get();
 
         return view('guru', compact('guru', 'matpel'));
     }
@@ -29,7 +26,7 @@ class GuruController extends Controller
         $guru->nip = $request->nip;
         $guru->nama_guru = $request->nama_guru;
         $guru->email = $request->email;
-        $guru->matpel_id = $request->matpel;
+        $guru->mata_pelajaran_id = $request->matpel;
         
         $guru->save();
 

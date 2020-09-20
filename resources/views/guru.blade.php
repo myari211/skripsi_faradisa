@@ -21,8 +21,8 @@
                 <th scope="row">{{ ++$no }}</th>
                 <td>{{ $pengajar->nip }}</td>
                 <td>{{ $pengajar->nama_guru }}</td>
-                <td>{{ $pengajar->kode_matpel }}</td>
-                <td>{{ $pengajar->nama_matpel }}</td>
+                <td>{{ $pengajar->matpel['kode_matpel'] }}</td>
+                <td>{{ $pengajar->matpel['nama_matpel'] }}</td>
                 <td class="d-flex justify-content-end">
                     <button type="button" class="btn amber btn-md text-white" data-toggle="modal" data-target="#edit{{$pengajar->id}}">
                         <i class="fas fa-edit size-icons"></i>

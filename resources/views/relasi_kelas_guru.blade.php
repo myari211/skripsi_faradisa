@@ -15,12 +15,23 @@
       </tr>
     </thead>
     <tbody>
-        @foreach($relasi_kelas as $relation_class)
+        @foreach($guru as $no =>$teacher)
         <tr>
-            <th scope="row">1</th>
-            <td>{{ $relation_class->nama_guru }}</td>
-            <td>{{ $relation_class->nama_matpel }}</td>
-            <td>{{$relation_class->total }}&nbsp; - &nbsp;{{ $relation_class->nama_kelas }}</td>
+            <th scope="row">{{ ++$no }}</th>
+            <td>{{ $teacher->nama_guru }}</td>
+            <td>{{ $teacher->matpel['nama_matpel'] }}</td>
+            <td>
+                @if(count($teacher->kelas) > 0)
+                <ul>
+                    @foreach($teacher->kelas as $class)
+                    <li>{{ $class->nama_kelas }}</li>
+                    @endforeach
+                </ul>
+                @else
+                    Belum Ada Kelas
+                @endif
+            </td>
+            <td></td>
         </tr>
         @endforeach
     </tbody>

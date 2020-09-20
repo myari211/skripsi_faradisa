@@ -9,4 +9,8 @@ class matpel extends Model
     protected $table = "mata_pelajaran";
     protected $fillable = ['id', 'kode_matpel', 'nama_matpel'];
     public $incrementing = false;
+
+    public function guru(){
+        return $this->hasOne('App\guru');
+    }
 }

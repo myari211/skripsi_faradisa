@@ -52,9 +52,13 @@
                         <div class="col-lg-6 pl-1">
                             <label for="jurusan_id">Jurusan</label>
                             <select class="form-control" name="jurusan_id" id="jurusan_id">
-                                @foreach ($jurusan as $prodi)
-                                    <option value="{{ $prodi->id }}">{{ $prodi->kode_jurusan}} - {{ $prodi->nama_jurusan }}</option>
-                                @endforeach
+                                @if(count($jurusan) > 0)
+                                    @foreach ($jurusan as $prodi)
+                                        <option value="{{ $prodi->id }}">{{ $prodi->kode_jurusan}} - {{ $prodi->nama_jurusan }}</option>
+                                    @endforeach
+                                @else
+                                    <option>Belum Ada Data</option>
+                                @endif
                             </select>
                         </div>
                         <div class="col-lg-6 pr-1">

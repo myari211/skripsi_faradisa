@@ -13,16 +13,16 @@ class CreateRelasiKelasGurusTable extends Migration
      */
     public function up()
     {
-        Schema::create('relasi_kelas_guru', function (Blueprint $table) {
-            $table->string('kode_guru');
-            $table->string('kode_kelas');
+        Schema::create('guru_kelas', function (Blueprint $table) {
+            $table->string('guru_id');
+            $table->string('kelas_id');
             $table->timestamps();
         });
 
-        Schema::table('relasi_kelas_guru', function($table){
-            $table->foreign('kode_guru')->references('id')->on('guru');
-            $table->foreign('kode_kelas')->references('id')->on('kelas');
-            $table->primary(['kode_guru', 'kode_kelas']);
+        Schema::table('guru_kelas', function($table){
+            $table->foreign('guru_id')->references('id')->on('guru');
+            $table->foreign('kelas_id')->references('id')->on('kelas');
+            $table->primary(['guru_id', 'kelas_id']);
         });
     }
 
