@@ -6,7 +6,6 @@
         <th scope="col">No</th>
         <th scope="col">Nama Siswa</th>
         <th scope="col">Nomor Induk</th>
-        <th scope="col">Email</th>
         <th class="d-flex justify-content-end mr-3 w-20">
             @foreach ($kelas as $class)
                 {{$class->tingkatan}}&nbsp;-&nbsp;{{$class->nama_kelas}}
@@ -25,4 +24,7 @@
     @endforeach
     </tbody>
 </table>
+<div class="d-flex justify-content-end">
+    {{$siswa->links()}}
+</div>
 @endsection

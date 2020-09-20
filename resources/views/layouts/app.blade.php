@@ -159,6 +159,23 @@
                                 </a>
                             </nav>
                         </div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-folder"></i></div>
+                            Relasi Table
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link d-inline-flex justify-content-between" href="/guru_kelas">
+                                    Guru - Kelas
+                                    <i class="fas fa-briefcase size-icons"></i>
+                                </a>
+                                <a class="nav-link d-inline-flex justify-content-between" href="/kelas">
+                                    Kelas
+                                    <i class="fas fa-school size-icons"></i>
+                                </a>
+                            </nav>
+                        </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             Pages

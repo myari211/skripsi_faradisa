@@ -65,9 +65,13 @@
                         <div class="col-lg-12">
                             <label for="matpel">Mata Pelajaran</label>
                             <select name="matpel" id="matpel" class="form-control">
-                                @foreach($matpel as $pelajaran)
-                                    <option value="{{ $pelajaran->id }}">{{ $pelajaran->nama_matpel }}</option>
-                                @endforeach
+                                @if(count($matpel) > 0))
+                                    @foreach($matpel as $pelajaran)
+                                        <option value="{{ $pelajaran->id }}">{{ $pelajaran->nama_matpel }}</option>
+                                    @endforeach
+                                @else
+                                    <option>Belum Ada Data</option>
+                                @endif
                             </select>
                         </div>
                     </div>

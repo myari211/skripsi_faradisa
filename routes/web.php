@@ -55,3 +55,7 @@ Route::post('/siswa/add', 'SiswaController@create');
 Route::post('/siswa/edit/{id}', 'SiswaController@update');
 Route::post('/siswa/delete/{id}', 'SiswaController@delete');
 
+// relasi_guru_kelas
+Route::get('/guru_kelas', 'RelasiKelasGuruController@index');
+Route::post('/guru_kelas/add', 'RelasiKelasGuruController@create');
+
