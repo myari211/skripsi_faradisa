@@ -11,6 +11,10 @@ use Ramsey\Uuid\Uuid;
 
 class GuruController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');    
+    }
+
     public function index(){
         $matpel= Mata_pelajaran::all();
         $guru = Guru::all();

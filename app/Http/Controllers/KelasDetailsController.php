@@ -8,6 +8,10 @@ use App\kelas;
 
 class KelasDetailsController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function index(){
         $kelas = DB::table('kelas')
             ->join('jurusan', 'kelas.jurusan_id', '=', 'jurusan.id')

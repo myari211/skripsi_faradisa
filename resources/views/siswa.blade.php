@@ -2,19 +2,19 @@
 @section('content')
     <table class="table">
         <thead class="bg-dark white-text">
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Nomor Induk</th>
-            <th scope="col">Jenis Kelamin</th>
-            <th scope="col">Kelas</th>
-            <th scope="col">Email</th>
-            <th class="col d-flex justify-content-end">
-                <button type="button" class="btn indigo text-white btn-md" data-toggle="modal" data-target="#add">
-                    <i class="fas fa-plus size-icons"></i>
-                </button>
-            </th>
-          </tr>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Nomor Induk</th>
+                <th scope="col">Jenis Kelamin</th>
+                <th scope="col">Kelas</th>
+                <th scope="col">Email</th>
+                <th class="col d-flex justify-content-end">
+                    <button type="button" class="btn indigo text-white btn-md" data-toggle="modal" data-target="#add">
+                        <i class="fas fa-plus size-icons"></i>
+                    </button>
+                </th>
+            </tr>
         </thead>
         <tbody>
         @foreach($siswa as $no => $student)
@@ -25,7 +25,7 @@
                 @if ($student->jenis_kelamin == "L")
                         <td>Laki - Laki</td>
                 @else
-                        <td>Perempuan</td>        
+                        <td>Perempuan</td>
                 @endif
                 
                 <td>{{ $student->nama_kelas }}</td>

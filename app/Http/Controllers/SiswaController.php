@@ -11,6 +11,11 @@ use Ramsey\Uuid\Uuid;
 
 class SiswaController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function index(){
         $siswa = DB::table('siswa')
             ->join('kelas', 'siswa.kelas_id','=','kelas.id')

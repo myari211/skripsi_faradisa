@@ -59,3 +59,9 @@ Route::post('/siswa/delete/{id}', 'SiswaController@delete');
 Route::get('/guru_kelas', 'RelasiKelasGuruController@index');
 Route::post('/guru_kelas/add', 'RelasiKelasGuruController@create');
 
+//hambatan
+Route::get('/hambatan', 'HambatanController@index');
+Route::post('/hambatan/add', 'HambatanController@create');
+Route::post('/hambatan/edit/{id}', 'HambatanController@update');
+Route::post('/hambatan/delete/{id}', 'HambatanController@delete');
+

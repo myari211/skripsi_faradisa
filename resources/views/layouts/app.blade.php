@@ -98,24 +98,24 @@
         <a class="navbar-brand" href="index.html">Learning Obstacle</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </form>
+        <p class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 text-white">
+            Hi, {{ Auth::user()->name }}
+        </p>
         <!-- Navbar-->
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <a class="dropdown-item" href="#">Activity Log</a>
+                <div class="dropdown-menu dropdown-menu-right p-4" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">{{ Auth::user()->name }}</a>
+                    <a class="dropdown-item" href="#">{{ Auth::user()->email }}</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html">Logout</a>
-                </div>
+                        <button type="button" class="dropdown-item btn btn-danger btn-block mt-2 d-flex justify-content-center text-white" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </button>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
             </li>
         </ul>
     </nav>
@@ -170,8 +170,8 @@
                                     Guru - Kelas
                                     <i class="fas fa-briefcase size-icons"></i>
                                 </a>
-                                <a class="nav-link d-inline-flex justify-content-between" href="/kelas">
-                                    Kelas
+                                <a class="nav-link d-inline-flex justify-content-between" href="/hambatan">
+                                    Hambatan
                                     <i class="fas fa-school size-icons"></i>
                                 </a>
                             </nav>
@@ -219,8 +219,8 @@
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Start Bootstrap
+                    <div class="small">Login As:</div>
+                    {{ Auth::user()->email }}
                 </div>
             </nav>
         </div>
@@ -230,13 +230,8 @@
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
+                    <div class="d-flex align-items-center justify-content-end small">
+                        <div class="text-muted">Learning Obstacle &copy; 2020</div>
                     </div>
                 </div>
             </footer>

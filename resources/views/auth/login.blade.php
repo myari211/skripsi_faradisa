@@ -1,9 +1,19 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<html>
+    <head>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    </head>
+    <body>
+{{-- <div class="container">
+    <div class="row justify-content-center top">
+        <div class="col-lg-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
@@ -69,5 +79,44 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+</div> --}}
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="card" style="margin-top:200px">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center">
+                            <h5 class="text-center">Selamat Datang</h5>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <h3>Learning <span class="text-indigo">Obstacle</span></h3>
+                        </div>
+                        <form class="p-4" method="post" action="{{ route('login') }}">
+                            @csrf
+                            <div class="md-form">
+                                <input type="email" id="email" class="form-control" name="email">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="md-form">
+                                <input type="password" id="password" class="form-control" name="password">
+                                <label for="password">Password</label>
+                            </div>
+                            <div class="md-form">
+                                <button type="submit" class="btn btn-indigo text-white btn-block mt-4">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    </body>
+</html>

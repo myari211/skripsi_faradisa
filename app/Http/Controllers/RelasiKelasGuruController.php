@@ -10,6 +10,11 @@ use App\guru_kelas;
 
 class RelasiKelasGuruController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index() {
         $guru = Guru::get();
         $kelas = Kelas::all();

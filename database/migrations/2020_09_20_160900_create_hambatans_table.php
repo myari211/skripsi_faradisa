@@ -14,7 +14,9 @@ class CreateHambatansTable extends Migration
     public function up()
     {
         Schema::create('hambatan', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
+            $table->string('learning_obstacle');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }
